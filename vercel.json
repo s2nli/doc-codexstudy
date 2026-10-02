@@ -1,0 +1,16 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/disha-courses",
+      "destination": "https://disha-studyapkmod.vercel.app/courses.json"
+    },
+    {
+      "source": "/api/koyeb/:path*",
+      "destination": "https://open-mora-natking151-ea9216fb.koyeb.app/:path*"
+    },
+    {
+      "source": "/api/appx-play/:path*",
+      "destination": "https://appx-play.classx.co.in/:path*"
+    }
+  ]
+}

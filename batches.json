@@ -1,0 +1,16 @@
+{
+  "_readme": "Offline fallback only. Real batches load live from Disha courses.json via /api/disha-courses. Entries here marked fallback:true are hidden once the live list loads.",
+  "success": true,
+  "batches": [
+    {
+      "course_id": "57",
+      "batch_name": "Disha Live Classes (offline fallback)",
+      "description": "Live classes, recordings and notes",
+      "image": "",
+      "language": "Hinglish",
+      "defaultTab": "live",
+      "subjects": [],
+      "fallback": true
+    }
+  ]
+}
