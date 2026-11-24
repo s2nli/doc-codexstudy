@@ -34,14 +34,8 @@
     }
   ],
   "functions": {
-    "api/hrry/[...path].js": {
+    "api/**/*.js": {
       "maxDuration": 60
-    },
-    "api/site/[...path].js": {
-      "maxDuration": 30
-    },
-    "api/site/index.js": {
-      "maxDuration": 30
     }
   }
 }
