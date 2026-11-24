@@ -2,7 +2,7 @@
   "name": "Disha Learning",
   "short_name": "Disha Learning",
   "description": "Disha online classes - live classes, recorded lectures and notes.",
-  "start_url": "./index.html",
+  "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
@@ -31,7 +31,7 @@
   "shortcuts": [
     {
       "name": "All Batches",
-      "url": "./index.html?filter=all#courses",
+      "url": "./doc.html?filter=all#courses",
       "icons": [
         {
           "src": "assets/mj-icon-192.png",
@@ -41,7 +41,7 @@
     },
     {
       "name": "My Favorites",
-      "url": "./index.html?filter=favorites#courses",
+      "url": "./doc.html?filter=favorites#courses",
       "icons": [
         {
           "src": "assets/mj-icon-192.png",
@@ -51,7 +51,7 @@
     },
     {
       "name": "Newest Batches",
-      "url": "./index.html?sort=newest#courses",
+      "url": "./doc.html?sort=newest#courses",
       "icons": [
         {
           "src": "assets/mj-icon-192.png",

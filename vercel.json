@@ -21,8 +21,16 @@
       "destination": "/api/hrry/doc/:path*"
     },
     {
-      "source": "/hrry/:path*",
-      "destination": "/api/site/:path*"
+      "source": "/",
+      "destination": "/api/site/"
+    },
+    {
+      "source": "/assets/:path*",
+      "destination": "/api/site/assets/:path*"
+    },
+    {
+      "source": "/doc",
+      "destination": "/doc.html"
     }
   ],
   "functions": {
@@ -35,12 +43,5 @@
     "api/site/index.js": {
       "maxDuration": 30
     }
-  },
-  "redirects": [
-    {
-      "source": "/hrry",
-      "destination": "/hrry/",
-      "permanent": false
-    }
-  ]
+  }
 }
