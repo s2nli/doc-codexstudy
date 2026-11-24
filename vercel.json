@@ -11,6 +11,36 @@
     {
       "source": "/api/appx-play/:path*",
       "destination": "https://appx-play.classx.co.in/:path*"
+    },
+    {
+      "source": "/api/stream/:path*",
+      "destination": "/api/hrry/stream/:path*"
+    },
+    {
+      "source": "/api/doc/:path*",
+      "destination": "/api/hrry/doc/:path*"
+    },
+    {
+      "source": "/hrry/:path*",
+      "destination": "/api/site/:path*"
+    }
+  ],
+  "functions": {
+    "api/hrry/[...path].js": {
+      "maxDuration": 60
+    },
+    "api/site/[...path].js": {
+      "maxDuration": 30
+    },
+    "api/site/index.js": {
+      "maxDuration": 30
+    }
+  },
+  "redirects": [
+    {
+      "source": "/hrry",
+      "destination": "/hrry/",
+      "permanent": false
     }
   ]
 }

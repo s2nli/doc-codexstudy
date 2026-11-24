@@ -619,11 +619,7 @@
         "<h2>API Settings</h2>" +
         "<label>Authorization token (Bearer)</label>" +
         '<input id="dsToken" type="password" autocomplete="off" placeholder="Paste your token" value="' + esc(c.token) + '">' +
-        "<label>Proxy URL</label>" +
-        '<input id="dsProxy" type="text" placeholder="' + esc(DEFAULTS.proxy) + '" value="' + esc(lsGet(LS.proxy)) + '">' +
-        "<label>ClassX API base URL</label>" +
-        '<input id="dsBase" type="text" placeholder="' + esc(DEFAULTS.base) + '" value="' + esc(lsGet(LS.base)) + '">' +
-        '<p class="dv-hint">Stored only in this browser. If lectures fail with an auth error, paste a fresh token here. Leave fields empty to use defaults.</p>' +
+        '<p class="dv-hint">Stored only in this browser. If lectures fail with an auth error, paste a fresh token here.</p>' +
         '<div class="dv-row"><button class="dv-btn" data-s="save">Save</button><button class="dv-btn ghost" data-s="reset">Reset</button></div>' +
       "</div>";
     document.body.appendChild(settingsEl);
@@ -633,14 +629,12 @@
       if (t === settingsEl || t.dataset.s === "close") return goBack();
       if (t.dataset.s === "save") {
         lsSet(LS.token, settingsEl.querySelector("#dsToken").value.trim());
-        lsSet(LS.proxy, settingsEl.querySelector("#dsProxy").value.trim());
-        lsSet(LS.base, settingsEl.querySelector("#dsBase").value.trim());
         toast("API settings saved");
         goBack();
         if (viewEl && !viewEl.hidden) { S.live = null; loadFolder(); }
       } else if (t.dataset.s === "reset") {
         lsSet(LS.token, ""); lsSet(LS.proxy, ""); lsSet(LS.base, "");
-        settingsEl.querySelector("#dsToken").value = ""; settingsEl.querySelector("#dsProxy").value = ""; settingsEl.querySelector("#dsBase").value = "";
+        settingsEl.querySelector("#dsToken").value = "";
         toast("Settings reset to defaults");
       }
     });

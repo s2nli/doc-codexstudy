@@ -1,4 +1,4 @@
-const CACHE_NAME = "codex-studys-shell-v15";
+const CACHE_NAME = "codex-studys-shell-v16";
 const SHELL_FILES = ["./index.html", "./app.js", "./profile.js", "./disha.js", "./disha.css", "./manifest.json", "./assets/icon-192.png", "./assets/icon-512.png", "./assets/mj-icon-192.png", "./assets/mj-icon-512.png"];
 
 self.addEventListener("install", (event) => {
@@ -21,7 +21,7 @@ self.addEventListener("fetch", (event) => {
   const url = new URL(event.request.url);
   if (event.request.method !== "GET" || url.origin !== self.location.origin) return;
   // Never cache API/proxy traffic (lecture links are short-lived).
-  if (url.pathname.startsWith("/api/")) return;
+  if (url.pathname.startsWith("/api/") || url.pathname.startsWith("/hrry")) return;
 
   // Network-first for page navigations so UI/logic updates (like the popups) land on the very next visit.
   if (event.request.mode === "navigate") {
