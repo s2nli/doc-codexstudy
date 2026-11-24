@@ -1,4 +1,4 @@
-// Live reverse proxy of the HRRY DISHA frontend: /hrry/* -> https://hrrydocpro.ai.studio/*
+// Live reverse proxy of the HRRY DISHA frontend served at the site root: /  and  /assets/*  -> https://hrrydocpro.ai.studio/*
 // Nothing is copied: HTML/JS/CSS are fetched live and only the URLs are re-pointed to this site.
 const ORIGIN = "https://hrrydocpro.ai.studio";
 const UA = "Mozilla/5.0 (Linux; Android 13) AppleWebKit/537.36 Chrome/124 Mobile Safari/537.36";
@@ -6,20 +6,15 @@ const UA = "Mozilla/5.0 (Linux; Android 13) AppleWebKit/537.36 Chrome/124 Mobile
 function pathOf(req) {
   let p = req.query && req.query.path;
   p = Array.isArray(p) ? p.join("/") : (p || "");
-  if (!p) p = new URL(req.url, "http://x").pathname.replace(/^\/(api\/site|hrry)\/?/, "");
+  if (!p) p = new URL(req.url, "http://x").pathname.replace(/^\/(api\/site)?\/?/, "");
   return p.replace(/^\/+/, "");
 }
 
-function rewriteHtml(t) {
-  // root-relative URLs (/assets/.., /favicon..) -> /hrry/..  (skip //cdn and already-prefixed)
-  return t.replace(/(["'(=])\/(?!\/|hrry\/|api\/)/g, "$1/hrry/");
-}
+function rewriteHtml(t) { return t; }   // root-relative URLs already work at the site root
 function rewriteJs(t) {
   return t.split(ORIGIN + "/api").join("/api/hrry");
 }
-function rewriteCss(t) {
-  return t.replace(/url\((["']?)\/(?!\/|hrry\/)/g, "url($1/hrry/");
-}
+function rewriteCss(t) { return t; }
 
 module.exports = async (req, res) => {
   if (req.method !== "GET" && req.method !== "HEAD") return res.status(405).end();
